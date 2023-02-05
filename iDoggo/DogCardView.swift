@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct DogCardView: View {
-    let dogCard: DogCard
-    var removal: (() -> Void)? = nil
-    @State private var offset = CGSize.zero
+    let dog: Dog
 
     var body: some View {
         AsyncImage(
-            url: URL(string: dogCard.image)!,
+            url: URL(string: dog.image)!,
             transaction: Transaction(animation: .easeInOut)
         ) { phase in
             switch phase {
@@ -31,30 +29,13 @@ struct DogCardView: View {
             }
         }
         .cornerRadius(9)
-        .shadow(radius: 5)
-        .frame(height: UIScreen.main.bounds.height * 0.5)
+        .shadow(radius: 20)
         .padding()
-        .rotationEffect(.degrees(Double(offset.width / 10)))
-        .offset(x: offset.width * 5, y: 0)
-        .opacity(2 - Double(abs(offset.width / 20)))
-        .gesture(
-            DragGesture()
-                .onChanged { gesture in
-                    offset = gesture.translation
-                }
-                .onEnded { _ in
-                    if abs(offset.width) > 10 {
-                        removal?()
-                    } else {
-                        offset = .zero
-                    }
-                }
-        )
     }
 }
 
 struct DogCardView_Previews: PreviewProvider {
     static var previews: some View {
-        DogCardView(dogCard: DogCard(image: "https://images.dog.ceo/breeds/bulldog-french/n02108915_5367.jpg"))
+        DogCardView(dog: Dog(image: "https://images.dog.ceo/breeds/bulldog-french/n02108915_5367.jpg"))
     }
 }

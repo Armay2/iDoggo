@@ -7,39 +7,38 @@
 
 import SwiftUI
 
-struct DogCard {
+struct Dog: Hashable {
     let image: String
     
-    static let exemple1 = DogCard(image: "https://images.dog.ceo/breeds/bulldog-french/n02108915_5367.jpg")
-    static let exemple2 = DogCard(image: "https://images.dog.ceo/breeds/bulldog-french/n02108915_5813.jpg")
-    static let exemple3 = DogCard(image: "https://images.dog.ceo/breeds/bulldog-french/n02108915_6521.jpg")
+    static let exemple1 = Dog(image: "https://images.dog.ceo/breeds/bulldog-french/n02108915_5367.jpg")
+    static let exemple2 = Dog(image: "https://images.dog.ceo/breeds/bulldog-french/n02108915_5813.jpg")
+    static let exemple3 = Dog(image: "https://images.dog.ceo/breeds/bulldog-french/n02108915_6521.jpg")
 }
 
 struct BreedDetails: View {
     var breed: Breed
-    @State var dogCards: [DogCard] = [DogCard.exemple1, DogCard.exemple2]
-
+    @State var dogs = [Dog]()
+    
     var body: some View {
-        VStack() {
-            ZStack() {
-                ForEach(0..<dogCards.count, id: \.self) { index in
-                    DogCardView(dogCard: dogCards[index]) {
-                       withAnimation {
-                           removeCard(at: index)
-                       }
-                    }
-                }
+        ScrollView() {
+            ForEach(dogs, id: \.self) { dog in
+                DogCardView(dog: dog)
             }
-        }.navigationTitle("\(breed.title)")
+        }.navigationTitle("\(breed.title.capitalized)")
+            .task {
+                print("get dog based in breed")
+                await dogs = getRandomDog()
+            }
     }
     
-    func removeCard(at index: Int) {
-        dogCards.remove(at: index)
-        self.addCard()
-    }
-    
-    func addCard() {
-        dogCards.append(DogCard.exemple3)
+    private func getRandomDog() async -> [Dog]  {
+        if breed.isMain {
+            print("Fetch https://dog.ceo/api/breed/\(breed.mainBreed)//images")
+            return [Dog.exemple1, Dog.exemple2, Dog.exemple3]
+        } else {
+            print("Fetch https://dog.ceo/api/breed/\(breed.mainBreed)/\(breed.title)/images")
+            return [Dog.exemple1, Dog.exemple2, Dog.exemple3]
+        }
     }
 }
 

@@ -10,13 +10,14 @@ import SwiftUI
 struct Breed: Hashable {
     let title: String
     let isMain: Bool
+    let mainBreed: String?
     let subBreeds: [Breed]?
     
-    static let exemple1 = Breed(title: "bulldog", isMain: true, subBreeds:
-                                    [Breed(title: "boston", isMain: false, subBreeds: nil),
-                                     Breed(title: "english", isMain: false, subBreeds: nil),
-                                     Breed(title: "french", isMain: false, subBreeds: nil)])
-    static let exemple2 = Breed(title: "westhighland", isMain: true, subBreeds: nil)
+    static let exemple1 = Breed(title: "bulldog", isMain: true, mainBreed: "bulldog", subBreeds:
+                                    [Breed(title: "boston", isMain: false, mainBreed: nil, subBreeds: nil),
+                                     Breed(title: "english", isMain: false, mainBreed: nil, subBreeds: nil),
+                                     Breed(title: "french", isMain: false, mainBreed: nil, subBreeds: nil)])
+    static let exemple2 = Breed(title: "westhighland", isMain: true, mainBreed: "westhighland", subBreeds: nil)
 }
 
 struct BreedsView: View {
@@ -26,7 +27,7 @@ struct BreedsView: View {
         NavigationStack {
             List(breeds, id: \.title, children: \.subBreeds) { breed in
                 NavigationLink(value: breed) {
-                    Text(breed.title)
+                    Text(breed.title.capitalized)
                 }
             }
             .navigationDestination(for: Breed.self, destination: { breed in

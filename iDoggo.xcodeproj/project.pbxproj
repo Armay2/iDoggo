@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		513D6A0F299002CC003A9DA5 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D6A0E299002CC003A9DA5 /* APIServices.swift */; };
 		51D481E8298B19F400A8B718 /* iDoggoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D481E7298B19F400A8B718 /* iDoggoApp.swift */; };
 		51D481EA298B19F400A8B718 /* BreedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D481E9298B19F400A8B718 /* BreedsView.swift */; };
 		51D481EC298B19F500A8B718 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51D481EB298B19F500A8B718 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		513D6A0E299002CC003A9DA5 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		51D481E4298B19F400A8B718 /* iDoggo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDoggo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D481E7298B19F400A8B718 /* iDoggoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iDoggoApp.swift; sourceTree = "<group>"; };
 		51D481E9298B19F400A8B718 /* BreedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		513D6A11299002E8003A9DA5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				513D6A0E299002CC003A9DA5 /* APIServices.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		51D481DB298B19F400A8B718 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				51D481E7298B19F400A8B718 /* iDoggoApp.swift */,
+				513D6A11299002E8003A9DA5 /* Network */,
 				51D481E9298B19F400A8B718 /* BreedsView.swift */,
 				51E2ED15298B256500839064 /* BreedDetails.swift */,
 				51E2ED17298B27E300839064 /* DogCardView.swift */,
@@ -267,6 +278,7 @@
 				51E2ED16298B256500839064 /* BreedDetails.swift in Sources */,
 				51E2ED18298B27E300839064 /* DogCardView.swift in Sources */,
 				51D481E8298B19F400A8B718 /* iDoggoApp.swift in Sources */,
+				513D6A0F299002CC003A9DA5 /* APIServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
