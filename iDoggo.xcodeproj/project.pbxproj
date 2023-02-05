@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		513D6A0F299002CC003A9DA5 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D6A0E299002CC003A9DA5 /* APIServices.swift */; };
+		513D6A13299005D8003A9DA5 /* BreedsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D6A12299005D8003A9DA5 /* BreedsResponse.swift */; };
+		513D6A15299005E2003A9DA5 /* ImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D6A14299005E2003A9DA5 /* ImageResponse.swift */; };
+		513D6A192990066A003A9DA5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 513D6A182990066A003A9DA5 /* Alamofire */; };
+		513D6A1B29900B12003A9DA5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D6A1A29900B12003A9DA5 /* APIError.swift */; };
+		519F6E13299028C700BC1491 /* DogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F6E12299028C700BC1491 /* DogModel.swift */; };
+		51C41FBB299027C0005D62A9 /* BreedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C41FBA299027C0005D62A9 /* BreedModel.swift */; };
 		51D481E8298B19F400A8B718 /* iDoggoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D481E7298B19F400A8B718 /* iDoggoApp.swift */; };
 		51D481EA298B19F400A8B718 /* BreedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D481E9298B19F400A8B718 /* BreedsView.swift */; };
 		51D481EC298B19F500A8B718 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51D481EB298B19F500A8B718 /* Assets.xcassets */; };
@@ -38,6 +44,11 @@
 
 /* Begin PBXFileReference section */
 		513D6A0E299002CC003A9DA5 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
+		513D6A12299005D8003A9DA5 /* BreedsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsResponse.swift; sourceTree = "<group>"; };
+		513D6A14299005E2003A9DA5 /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
+		513D6A1A29900B12003A9DA5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		519F6E12299028C700BC1491 /* DogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogModel.swift; sourceTree = "<group>"; };
+		51C41FBA299027C0005D62A9 /* BreedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedModel.swift; sourceTree = "<group>"; };
 		51D481E4298B19F400A8B718 /* iDoggo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDoggo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D481E7298B19F400A8B718 /* iDoggoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iDoggoApp.swift; sourceTree = "<group>"; };
 		51D481E9298B19F400A8B718 /* BreedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsView.swift; sourceTree = "<group>"; };
@@ -57,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				513D6A192990066A003A9DA5 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,9 +92,39 @@
 		513D6A11299002E8003A9DA5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				513D6A16299005E6003A9DA5 /* ResponsesModels */,
 				513D6A0E299002CC003A9DA5 /* APIServices.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		513D6A16299005E6003A9DA5 /* ResponsesModels */ = {
+			isa = PBXGroup;
+			children = (
+				513D6A14299005E2003A9DA5 /* ImageResponse.swift */,
+				513D6A12299005D8003A9DA5 /* BreedsResponse.swift */,
+				513D6A1A29900B12003A9DA5 /* APIError.swift */,
+			);
+			path = ResponsesModels;
+			sourceTree = "<group>";
+		};
+		519F6E14299028EB00BC1491 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				51D481E9298B19F400A8B718 /* BreedsView.swift */,
+				51E2ED17298B27E300839064 /* DogCardView.swift */,
+				51E2ED15298B256500839064 /* BreedDetails.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		519F6E172990291500BC1491 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				51C41FBA299027C0005D62A9 /* BreedModel.swift */,
+				519F6E12299028C700BC1491 /* DogModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		51D481DB298B19F400A8B718 = {
@@ -110,9 +152,8 @@
 			children = (
 				51D481E7298B19F400A8B718 /* iDoggoApp.swift */,
 				513D6A11299002E8003A9DA5 /* Network */,
-				51D481E9298B19F400A8B718 /* BreedsView.swift */,
-				51E2ED15298B256500839064 /* BreedDetails.swift */,
-				51E2ED17298B27E300839064 /* DogCardView.swift */,
+				519F6E14299028EB00BC1491 /* Views */,
+				519F6E172990291500BC1491 /* Models */,
 				51D481EB298B19F500A8B718 /* Assets.xcassets */,
 				51D481ED298B19F500A8B718 /* Preview Content */,
 			);
@@ -160,6 +201,9 @@
 			dependencies = (
 			);
 			name = iDoggo;
+			packageProductDependencies = (
+				513D6A182990066A003A9DA5 /* Alamofire */,
+			);
 			productName = iDoggo;
 			productReference = 51D481E4298B19F400A8B718 /* iDoggo.app */;
 			productType = "com.apple.product-type.application";
@@ -232,6 +276,9 @@
 				Base,
 			);
 			mainGroup = 51D481DB298B19F400A8B718;
+			packageReferences = (
+				513D6A172990066A003A9DA5 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 51D481E5298B19F400A8B718 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -276,7 +323,12 @@
 			files = (
 				51D481EA298B19F400A8B718 /* BreedsView.swift in Sources */,
 				51E2ED16298B256500839064 /* BreedDetails.swift in Sources */,
+				513D6A15299005E2003A9DA5 /* ImageResponse.swift in Sources */,
+				51C41FBB299027C0005D62A9 /* BreedModel.swift in Sources */,
 				51E2ED18298B27E300839064 /* DogCardView.swift in Sources */,
+				513D6A13299005D8003A9DA5 /* BreedsResponse.swift in Sources */,
+				519F6E13299028C700BC1491 /* DogModel.swift in Sources */,
+				513D6A1B29900B12003A9DA5 /* APIError.swift in Sources */,
 				51D481E8298B19F400A8B718 /* iDoggoApp.swift in Sources */,
 				513D6A0F299002CC003A9DA5 /* APIServices.swift in Sources */,
 			);
@@ -603,6 +655,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		513D6A172990066A003A9DA5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		513D6A182990066A003A9DA5 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 513D6A172990066A003A9DA5 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 51D481DC298B19F400A8B718 /* Project object */;
 }

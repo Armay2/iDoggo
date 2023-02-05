@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DogCardView: View {
-    let dog: Dog
-
+    let dog: DogModel
+    
     var body: some View {
         AsyncImage(
             url: URL(string: dog.image)!,
@@ -36,6 +36,6 @@ struct DogCardView: View {
 
 struct DogCardView_Previews: PreviewProvider {
     static var previews: some View {
-        DogCardView(dog: Dog(image: "https://images.dog.ceo/breeds/bulldog-french/n02108915_5367.jpg"))
+        DogCardView(dog: DogModel(image: "https://images.dog.ceo/breeds/bulldog-french/n02108915_5367.jpg"))
     }
 }
