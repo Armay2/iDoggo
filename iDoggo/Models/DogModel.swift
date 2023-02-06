@@ -4,7 +4,7 @@
 //
 //  Created by Arnaud NOMMAY on 05/02/2023.
 //
-
+import CoreData
 import Foundation
 
 struct DogModel: Hashable {
@@ -16,4 +16,15 @@ struct DogModel: Hashable {
     static let exemple3 = DogModel(image: "https://images.dog.ceo/breeds/bulldog-french/n02108915_6521.jpg")
     #endif
 
+}
+
+extension Dog {
+    static func from(dogModel: DogModel, in context: NSManagedObjectContext){
+        let dog = Dog(context: context)
+        dog.image = dogModel.image
+    }
+
+    func toDogModel() -> DogModel {
+        return DogModel(image: self.image!)
+    }
 }

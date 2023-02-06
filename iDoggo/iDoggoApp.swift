@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct iDoggoApp: App {
+    @StateObject private var dataController = DataController()
+    
     var body: some Scene {
         WindowGroup {
-            BreedsView()
+            BreedsView().environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }

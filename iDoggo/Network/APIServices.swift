@@ -54,7 +54,7 @@ class APIServices {
                         var breeds = [BreedModel]()
                         if let message = breedsResponse.message {
                             for (title, subBreedTitles) in message {
-                                let subBreeds = subBreedTitles.map { BreedModel(title: $0, isMain: false, mainBreed: "title", subBreeds: nil) }
+                                let subBreeds = subBreedTitles.map { BreedModel(title: $0, isMain: false, mainBreed: title, subBreeds: nil) }
                                 breeds.append(BreedModel(title: title, isMain: true, mainBreed: title, subBreeds: subBreeds.isEmpty ? nil : subBreeds))
                             }
                         }

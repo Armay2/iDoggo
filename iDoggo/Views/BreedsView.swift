@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct BreedsView: View {
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var breedsCore: FetchedResults<Breed>
+
     @State var breeds = [BreedModel]()
     @State private var searchText = ""
     @State var filteredBreeds = [BreedModel]()
-
+    
     var body: some View {
         NavigationStack {
             List(filteredBreeds, id: \.title, children: \.subBreeds) { breed in
@@ -30,6 +33,21 @@ struct BreedsView: View {
         })
         .task {
             breeds = await APIServices.shared.getAllBreeds() ?? []
+            handleNoConnection()
+        }
+    }
+    
+    private func handleNoConnection() {
+        if breeds.isEmpty {
+            //Load breeds from Core Data
+            breeds = breedsCore.map { $0.toBreedModel() }
+            filteredBreeds = breeds
+        } else {
+            // Save breeds to Core Data
+            breeds.forEach { breed in
+                let _ = Breed.from(breedModel: breed, in: moc)
+                try? moc.save()
+            }
             filteredBreeds = breeds
         }
     }
@@ -46,6 +64,6 @@ struct BreedsView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        BreedsView(breeds: [BreedModel.exemple1, BreedModel.exemple2])
+        BreedsView(breeds: [BreedModel.exemple2, BreedModel.exemple2])
     }
 }

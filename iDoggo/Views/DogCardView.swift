@@ -11,22 +11,13 @@ struct DogCardView: View {
     let dog: DogModel
     
     var body: some View {
-        AsyncImage(
-            url: URL(string: dog.image)!,
-            transaction: Transaction(animation: .easeInOut)
-        ) { phase in
-            switch phase {
-            case .empty:
-                Rectangle().foregroundColor(.gray)
-            case .success(let image):
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            case .failure:
-                Rectangle().foregroundColor(.red)
-            @unknown default:
-                EmptyView()
-            }
+        AsyncImage(url: URL(string: dog.image)) { image in
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        } placeholder: {
+            Rectangle()
+                .foregroundColor(.gray)
         }
         .cornerRadius(9)
         .shadow(radius: 20)

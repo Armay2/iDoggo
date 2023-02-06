@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51077B3C2991976C00A907EF /* BreedsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51077B3A2991976C00A907EF /* BreedsDataModel.xcdatamodeld */; };
+		510A62132991709D001E059C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510A62122991709D001E059C /* DataController.swift */; };
 		513D6A0F299002CC003A9DA5 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D6A0E299002CC003A9DA5 /* APIServices.swift */; };
 		513D6A13299005D8003A9DA5 /* BreedsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D6A12299005D8003A9DA5 /* BreedsResponse.swift */; };
 		513D6A15299005E2003A9DA5 /* ImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D6A14299005E2003A9DA5 /* ImageResponse.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		51077B3B2991976C00A907EF /* BreedsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BreedsDataModel.xcdatamodel; sourceTree = "<group>"; };
+		510A62122991709D001E059C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		513D6A0E299002CC003A9DA5 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		513D6A12299005D8003A9DA5 /* BreedsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsResponse.swift; sourceTree = "<group>"; };
 		513D6A14299005E2003A9DA5 /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
@@ -89,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		510A621129916FC5001E059C /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				510A62122991709D001E059C /* DataController.swift */,
+				51077B3A2991976C00A907EF /* BreedsDataModel.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		513D6A11299002E8003A9DA5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +163,7 @@
 		51D481E6298B19F400A8B718 /* iDoggo */ = {
 			isa = PBXGroup;
 			children = (
+				510A621129916FC5001E059C /* Core Data */,
 				51D481E7298B19F400A8B718 /* iDoggoApp.swift */,
 				513D6A11299002E8003A9DA5 /* Network */,
 				519F6E14299028EB00BC1491 /* Views */,
@@ -321,6 +335,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51077B3C2991976C00A907EF /* BreedsDataModel.xcdatamodeld in Sources */,
+				510A62132991709D001E059C /* DataController.swift in Sources */,
 				51D481EA298B19F400A8B718 /* BreedsView.swift in Sources */,
 				51E2ED16298B256500839064 /* BreedDetails.swift in Sources */,
 				513D6A15299005E2003A9DA5 /* ImageResponse.swift in Sources */,
@@ -674,6 +690,19 @@
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		51077B3A2991976C00A907EF /* BreedsDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				51077B3B2991976C00A907EF /* BreedsDataModel.xcdatamodel */,
+			);
+			currentVersion = 51077B3B2991976C00A907EF /* BreedsDataModel.xcdatamodel */;
+			path = BreedsDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 51D481DC298B19F400A8B718 /* Project object */;
 }
